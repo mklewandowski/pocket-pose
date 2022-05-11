@@ -8,6 +8,14 @@ public class SceneManager : MonoBehaviour
     GameObject HUDMainButtons;
     [SerializeField]
     GameObject HUDAbout;
+    [SerializeField]
+    GameObject HUDFullTest;
+    [SerializeField]
+    GameObject HUDFlashTest;
+    [SerializeField]
+    GameObject HUDTimeTest;
+    [SerializeField]
+    GameObject HUDStudy;
 
     AudioSource audioSource;
     [SerializeField]
@@ -28,14 +36,62 @@ public class SceneManager : MonoBehaviour
     public void SelectAboutButton()
     {
         audioSource.PlayOneShot(MenuSound, 1f);
-        HUDMainButtons.GetComponent<MoveNormal>().MoveRight();
+        HUDMainButtons.GetComponent<MoveNormal>().MoveLeft();
         HUDAbout.GetComponent<MoveNormal>().MoveLeft();
     }
 
     public void SelectAboutBackButton()
     {
         audioSource.PlayOneShot(MenuSound, 1f);
-        HUDMainButtons.GetComponent<MoveNormal>().MoveLeft();
+        HUDMainButtons.GetComponent<MoveNormal>().MoveRight();
         HUDAbout.GetComponent<MoveNormal>().MoveRight();
+    }
+    public void SelectFullTestButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDMainButtons.GetComponent<MoveNormal>().MoveLeft();
+        HUDFullTest.GetComponent<MoveNormal>().MoveLeft();
+    }
+    public void SelectFullTestBackButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDMainButtons.GetComponent<MoveNormal>().MoveRight();
+        HUDFullTest.GetComponent<MoveNormal>().MoveRight();
+    }
+    public void SelectFlashTestButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDMainButtons.GetComponent<MoveNormal>().MoveLeft();
+        HUDFlashTest.GetComponent<MoveNormal>().MoveLeft();
+    }
+    public void SelectFlashTestBackButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDMainButtons.GetComponent<MoveNormal>().MoveRight();
+        HUDFlashTest.GetComponent<MoveNormal>().MoveRight();
+    }
+    public void SelectTimeAttackButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDMainButtons.GetComponent<MoveNormal>().MoveLeft();
+        HUDTimeTest.GetComponent<MoveNormal>().MoveLeft();
+    }
+    public void SelectTimeAttackBackButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDMainButtons.GetComponent<MoveNormal>().MoveRight();
+        HUDTimeTest.GetComponent<MoveNormal>().MoveRight();
+    }
+    public void SelectStudyButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDMainButtons.GetComponent<MoveNormal>().MoveLeft();
+        HUDStudy.GetComponent<MoveNormal>().MoveLeft();
+    }
+    public void SelectStudyBackButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDMainButtons.GetComponent<MoveNormal>().MoveRight();
+        HUDStudy.GetComponent<MoveNormal>().MoveRight();
     }
 }

@@ -12,8 +12,8 @@ public class Asana : MonoBehaviour
     public Asana (string englishName, string sanskritName, string category, Sprite imageSprite)
     {
         EnglishName = englishName;
-        SanskritName = englishName;
-        Category = sanskritName;
+        SanskritName = sanskritName;
+        Category = category;
         ImageSprite = imageSprite;
     }
 }

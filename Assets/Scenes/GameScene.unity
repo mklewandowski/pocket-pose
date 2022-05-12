@@ -447,7 +447,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1288718042}
         m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: SelectStudyAsanasBackButton
+        m_MethodName: SelectStudyNextButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1756,7 +1756,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -340}
-  m_SizeDelta: {x: 700, y: 50}
+  m_SizeDelta: {x: 750, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &359083242
 MonoBehaviour:
@@ -2932,7 +2932,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -190}
-  m_SizeDelta: {x: 700, y: 50}
+  m_SizeDelta: {x: 750, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611759638
 MonoBehaviour:
@@ -2981,8 +2981,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 46
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2991,7 +2991,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6000,7 +6000,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1288718042}
         m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: SelectStudyAsanasBackButton
+        m_MethodName: SelectStudyPrevButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6210,6 +6210,11 @@ MonoBehaviour:
   HUDStudy: {fileID: 45890722}
   HUDStudyRoots: {fileID: 121223303}
   HUDStudyAsanas: {fileID: 1258798644}
+  HUDStudyImage: {fileID: 713427106}
+  HUDStudyEngName: {fileID: 611759638}
+  HUDStudySansName: {fileID: 1373959846}
+  HUDStudyCat: {fileID: 359083242}
+  HUDStudyNum: {fileID: 1711119375}
   MenuSound: {fileID: 8300000, guid: 7cb45edfb985d644bba11bd74248cac2, type: 3}
   AsanaSprites:
   - {fileID: 21300000, guid: d2d6078d88c0a2a47968c66157697054, type: 3}
@@ -6236,7 +6241,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 18f3130698d4bbe459bed514df585ba0, type: 3}
   - {fileID: 21300000, guid: 3a16249e426f95f41bceae5f0d5758f9, type: 3}
   - {fileID: 21300000, guid: 07b0667ecadcc6a408034432c7921abd, type: 3}
-  - {fileID: 21300000, guid: 7826caac03dbf5c49bb464a27454566e, type: 3}
+  - {fileID: 21300000, guid: 09beb043de61abd41b14f655ebedb6ad, type: 3}
   - {fileID: 21300000, guid: 7826caac03dbf5c49bb464a27454566e, type: 3}
   - {fileID: 21300000, guid: 082ce0e61d25b9d48b28bf9b6700748d, type: 3}
   - {fileID: 21300000, guid: cffa75e9dd142f74a8c38f5cd5396912, type: 3}
@@ -6960,7 +6965,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -250}
-  m_SizeDelta: {x: 700, y: 50}
+  m_SizeDelta: {x: 750, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373959846
 MonoBehaviour:

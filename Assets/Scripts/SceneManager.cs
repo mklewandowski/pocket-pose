@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class SceneManager : MonoBehaviour
 {
@@ -16,12 +18,23 @@ public class SceneManager : MonoBehaviour
     GameObject HUDFlashTest;
     [SerializeField]
     GameObject HUDTimeTest;
+
     [SerializeField]
     GameObject HUDStudy;
     [SerializeField]
     GameObject HUDStudyRoots;
     [SerializeField]
     GameObject HUDStudyAsanas;
+    [SerializeField]
+    Image HUDStudyImage;
+    [SerializeField]
+    TextMeshProUGUI HUDStudyEngName;
+    [SerializeField]
+    TextMeshProUGUI HUDStudySansName;
+    [SerializeField]
+    TextMeshProUGUI HUDStudyCat;
+    [SerializeField]
+    TextMeshProUGUI HUDStudyNum;
 
     AudioSource audioSource;
     [SerializeField]
@@ -31,11 +44,14 @@ public class SceneManager : MonoBehaviour
     [SerializeField]
     Sprite[] AsanaSprites = new Sprite[75];
 
+    int currentStudyIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
         CreateAsanaList();
+        UpdateStudyAsana();
     }
 
     void CreateAsanaList()
@@ -211,5 +227,29 @@ public class SceneManager : MonoBehaviour
         HUDStudy.GetComponent<MoveNormal>().MoveUp();
         HUDTitle.GetComponent<MoveNormal>().MoveUp();
         HUDStudyAsanas.GetComponent<MoveNormal>().MoveDown();
+    }
+    public void SelectStudyPrevButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        currentStudyIndex--;
+        if (currentStudyIndex < 0)
+            currentStudyIndex = asanas.Count - 1;
+        UpdateStudyAsana();
+    }
+    public void SelectStudyNextButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        currentStudyIndex++;
+        if (currentStudyIndex >= asanas.Count)
+            currentStudyIndex = 0;
+        UpdateStudyAsana();
+    }
+    void UpdateStudyAsana()
+    {
+        HUDStudyImage.sprite = asanas[currentStudyIndex].ImageSprite;
+        HUDStudyEngName.text = asanas[currentStudyIndex].EnglishName;
+        HUDStudySansName.text = asanas[currentStudyIndex].SanskritName;
+        HUDStudyCat.text = asanas[currentStudyIndex].Category;
+        HUDStudyNum.text = (currentStudyIndex + 1) + " of " + asanas.Count;
     }
 }

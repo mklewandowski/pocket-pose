@@ -5,6 +5,8 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
     [SerializeField]
+    GameObject HUDTitle;
+    [SerializeField]
     GameObject HUDMainButtons;
     [SerializeField]
     GameObject HUDAbout;
@@ -16,6 +18,10 @@ public class SceneManager : MonoBehaviour
     GameObject HUDTimeTest;
     [SerializeField]
     GameObject HUDStudy;
+    [SerializeField]
+    GameObject HUDStudyRoots;
+    [SerializeField]
+    GameObject HUDStudyAsanas;
 
     AudioSource audioSource;
     [SerializeField]
@@ -93,5 +99,33 @@ public class SceneManager : MonoBehaviour
         audioSource.PlayOneShot(MenuSound, 1f);
         HUDMainButtons.GetComponent<MoveNormal>().MoveRight();
         HUDStudy.GetComponent<MoveNormal>().MoveRight();
+    }
+    public void SelectStudyRootsButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDStudy.GetComponent<MoveNormal>().MoveDown();
+        HUDTitle.GetComponent<MoveNormal>().MoveDown();
+        HUDStudyRoots.GetComponent<MoveNormal>().MoveUp();
+    }
+    public void SelectStudyRootsBackButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDStudy.GetComponent<MoveNormal>().MoveUp();
+        HUDTitle.GetComponent<MoveNormal>().MoveUp();
+        HUDStudyRoots.GetComponent<MoveNormal>().MoveDown();
+    }
+    public void SelectStudyAsanasButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDStudy.GetComponent<MoveNormal>().MoveDown();
+        HUDTitle.GetComponent<MoveNormal>().MoveDown();
+        HUDStudyAsanas.GetComponent<MoveNormal>().MoveUp();
+    }
+    public void SelectStudyAsanasBackButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDStudy.GetComponent<MoveNormal>().MoveUp();
+        HUDTitle.GetComponent<MoveNormal>().MoveUp();
+        HUDStudyAsanas.GetComponent<MoveNormal>().MoveDown();
     }
 }

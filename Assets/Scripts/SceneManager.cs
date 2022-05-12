@@ -27,10 +27,94 @@ public class SceneManager : MonoBehaviour
     [SerializeField]
     AudioClip MenuSound;
 
+    List<Asana> asanas = new List<Asana>();
+    [SerializeField]
+    Sprite[] AsanaSprites = new Sprite[75];
+
     // Start is called before the first frame update
     void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
+        CreateAsanaList();
+    }
+
+    void CreateAsanaList()
+    {
+        asanas.Add(new Asana("Hero's Pose", "Virasana", "Seated Pose", AsanaSprites[0]));
+        asanas.Add(new Asana("Diamond Pose", "Vajrasana", "Seated Pose", AsanaSprites[1]));
+        asanas.Add(new Asana("Easy Pose", "Sukhasana", "Seated Pose", AsanaSprites[2]));
+        asanas.Add(new Asana("Lotus Pose", "Padmasana", "Seated Pose", AsanaSprites[3]));
+        asanas.Add(new Asana("Mountain Pose", "Tadasana", "Standing Pose", AsanaSprites[4]));
+        asanas.Add(new Asana("Standing Forward Bend", "Uttanasana", "Standing Pose", AsanaSprites[5]));
+        asanas.Add(new Asana("Upward Salute", "Urdhva Hastasana", "Standing Pose", AsanaSprites[6]));
+        asanas.Add(new Asana("Chair/Fierce Pose", "Utkatasana", "Standing Pose", AsanaSprites[7]));
+        asanas.Add(new Asana("Warrior II", "Virabhadrasana II", "Standing Pose", AsanaSprites[8]));
+        asanas.Add(new Asana("Side Angle Pose", "Utthita Parsvakonasana", "Standing Pose", AsanaSprites[9]));
+        asanas.Add(new Asana("Triangle Pose", "Utthita Trikonasana", "Standing Pose", AsanaSprites[10]));
+        asanas.Add(new Asana("Half Moon Pose", "Ardha Chandrasana", "Standing Pose", AsanaSprites[11]));
+        asanas.Add(new Asana("Warrior I", "Virabhadrasana I", "Standing Pose", AsanaSprites[12]));
+        asanas.Add(new Asana("Revolved Side Angle", "Parivrtta Parsvakonasana", "Standing Pose", AsanaSprites[13]));
+        asanas.Add(new Asana("Wide Legged Forward Bend", "Prasarita Padottanasana", "Standing Pose", AsanaSprites[14]));
+        asanas.Add(new Asana("Pyramid", "Parsvottanasana", "Standing Pose", AsanaSprites[15]));
+        asanas.Add(new Asana("Revolved Triangle Pose", "Parivrtta Trikonasana", "Standing Pose", AsanaSprites[16]));
+        asanas.Add(new Asana("Warrior III", "Virabhadrasana III", "Standing Pose", AsanaSprites[17]));
+        asanas.Add(new Asana("Revolved Half Moon", "Parivrtta Ardha Chandrasana", "Standing Pose", AsanaSprites[18]));
+        asanas.Add(new Asana("Standing Splits", "Urdhva Prasarita Eka Padasana", "Standing Pose", AsanaSprites[19]));
+        asanas.Add(new Asana("Tree Pose", "Vrksasana", "Standing Pose", AsanaSprites[20]));
+        asanas.Add(new Asana("Eagle Pose", "Garudasana", "Standing Pose", AsanaSprites[21]));
+        asanas.Add(new Asana("Dancer's Pose", "Natarajasana", "Standing Pose", AsanaSprites[22]));
+        asanas.Add(new Asana("Boat Pose", "Navasana", "Abdominal", AsanaSprites[23]));
+        asanas.Add(new Asana("Half Boat Pose", "Ardha NavasanaMalasana", "Abdominal", AsanaSprites[24]));
+        asanas.Add(new Asana("Squat", "Malasana", "Seated Pose", AsanaSprites[25]));
+        asanas.Add(new Asana("Child's Pose", "Balasana", "Seated Pose", AsanaSprites[26]));
+        asanas.Add(new Asana("Staff Pose", "Dandasana", "Seated Pose", AsanaSprites[27]));
+        asanas.Add(new Asana("Seated Forward Bend", "Paschimottanasana", "Seated Pose", AsanaSprites[28]));
+        asanas.Add(new Asana("Reverse Table Top", "Purvottanasana", "Backbend", AsanaSprites[29]));
+        asanas.Add(new Asana("Head to Knee", "Janu Sirsasana", "Seated Pose", AsanaSprites[30]));
+        asanas.Add(new Asana("Revolved Head to Toe", "Parivrtta Janu Sirsasana", "Seated Pose", AsanaSprites[31]));
+        asanas.Add(new Asana("Cobbler's Pose", "Baddha Konasana", "Seated Pose", AsanaSprites[32]));
+        asanas.Add(new Asana("Cow Face Pose", "Gomukhasana", "Seated Pose", AsanaSprites[33]));
+        asanas.Add(new Asana("Wide Angle Seated Forward Bend", "Upavistha Konasana", "Seated Pose", AsanaSprites[34]));
+        asanas.Add(new Asana("Sage Marichi Pose", "Marichyasana", "Seated Pose", AsanaSprites[35]));
+        asanas.Add(new Asana("One Leg King Pigeon", "Eka Pada Rajakapotasana", "Seated Pose", AsanaSprites[36]));
+        asanas.Add(new Asana("Abdomen Turning Pose", "Jathara Parivartanasana", "Seated Pose", AsanaSprites[37]));
+        asanas.Add(new Asana("Sage Marichi III Pose", "Marichyasana III", "Seated Pose", AsanaSprites[38]));
+        asanas.Add(new Asana("Sage Bharadvaja's Pose", "Bharadvajasana", "Seated Pose", AsanaSprites[39]));
+        asanas.Add(new Asana("Half Sage Matsyendra's Pose", "Ardha Matsyendrasana", "Seated Pose", AsanaSprites[40]));
+        asanas.Add(new Asana("Cobra Pose", "Bhujangasana", "Backbend", AsanaSprites[41]));
+        asanas.Add(new Asana("Locust Pose", "Salabhasana", "Backbend", AsanaSprites[42]));
+        asanas.Add(new Asana("Bow Pose", "Dhanurasana", "Backbend", AsanaSprites[43]));
+        asanas.Add(new Asana("Upward Facing Dog", "Urdhva Mukha Svanasana", "Backbend", AsanaSprites[44]));
+        asanas.Add(new Asana("Camel Pose", "Ustrasana", "Backbend", AsanaSprites[45]));
+        asanas.Add(new Asana("Bridge Pose", "Setu Bandha Sarvangasana", "Backbend", AsanaSprites[46]));
+        asanas.Add(new Asana("Upward Bow", "Urdhva Dhanurasana", "Backbend", AsanaSprites[47]));
+        asanas.Add(new Asana("Fish Pose", "Matsyasana", "Backbend", AsanaSprites[48]));
+        asanas.Add(new Asana("Plank Pose", "Santolasana", "Arm Balance", AsanaSprites[49]));
+        asanas.Add(new Asana("Side Plank", "Vasisthasana", "Arm Balance", AsanaSprites[50]));
+        asanas.Add(new Asana("Bottom of Plank", "Chaturanga Dandasana", "Arm Balance", AsanaSprites[51]));
+        asanas.Add(new Asana("Crow", "Bakasana", "Arm Balance", AsanaSprites[52]));
+        asanas.Add(new Asana("Forearm Plank", "Makara Adho Mukha Svanasana", "Arm Balance", AsanaSprites[53]));
+        asanas.Add(new Asana("Downward Facing Dog", "Adho Mukha Svanasana", "Arm Balance", AsanaSprites[54]));
+        asanas.Add(new Asana("Dolphin Dog", "Ardha Pincha Mayurasana", "Arm Balance", AsanaSprites[55]));
+        asanas.Add(new Asana("Forearm Balance", "Pincha Mayurasana", "Arm Balance", AsanaSprites[56]));
+        asanas.Add(new Asana("Handstand", "Adho Mukha Vrikshasana", "Arm Balance", AsanaSprites[57]));
+        asanas.Add(new Asana("Headstand", "Sirsasana", "Inversion", AsanaSprites[58]));
+        asanas.Add(new Asana("Shoulder Stand", "Salamba Sarvangasana", "Inversion", AsanaSprites[59]));
+        asanas.Add(new Asana("Plow Pose", "Halasana", "Inversion", AsanaSprites[60]));
+        asanas.Add(new Asana("Legs Up Wall", "Viparita Karani", "Inversion", AsanaSprites[61]));
+        asanas.Add(new Asana("Knees to Chest", "Apanasana", "Supine Pose", AsanaSprites[62]));
+        asanas.Add(new Asana("Reclining Bound Angle", "Supta Baddha Konasana", "Supine Pose", AsanaSprites[63]));
+        asanas.Add(new Asana("Reclined Hand to Toe", "Supta Padangusthasana", "Supine Pose", AsanaSprites[64]));
+        asanas.Add(new Asana("Happy Baby", "Ananda Balasana", "Supine Pose", AsanaSprites[65]));
+        asanas.Add(new Asana("Corpse Pose", "Savasana", "Supine Pose", AsanaSprites[66]));
+        asanas.Add(new Asana("Lunge", "Anjaneyasana", "Standing Pose", AsanaSprites[67]));
+        asanas.Add(new Asana("Eight Angle Pose", "Astavakrasana", "Arm Balance", AsanaSprites[68]));
+        asanas.Add(new Asana("Firefly", "Tittibhasana", "Arm Balance", AsanaSprites[69]));
+        asanas.Add(new Asana("Peacock", "Mayurasana", "Arm Balance", AsanaSprites[70]));
+        asanas.Add(new Asana("Sage Koundinya Pose I", "Eka Pada Koundinyasana I", "Arm Balance", AsanaSprites[71]));
+        asanas.Add(new Asana("Sage Koundinya Pose II", "Eka Pada Koundinyasana II", "Arm Balance", AsanaSprites[72]));
+        asanas.Add(new Asana("Side Crow", "Parsva Bakasana", "Arm Balance", AsanaSprites[73]));
+        asanas.Add(new Asana("Wild Thing", "Camatkarasana", "Arm Balance", AsanaSprites[74]));
     }
 
     // Update is called once per frame

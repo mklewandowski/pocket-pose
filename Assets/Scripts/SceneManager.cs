@@ -19,6 +19,7 @@ public class SceneManager : MonoBehaviour
     [SerializeField]
     GameObject HUDTimeTest;
 
+    // study HUD elements
     [SerializeField]
     GameObject HUDStudy;
     [SerializeField]
@@ -35,6 +36,12 @@ public class SceneManager : MonoBehaviour
     TextMeshProUGUI HUDStudyCat;
     [SerializeField]
     TextMeshProUGUI HUDStudyNum;
+
+    // quiz HUD elements
+    [SerializeField]
+    GameObject HUDQuiz;
+    [SerializeField]
+    GameObject HUDQuizDone;
 
     AudioSource audioSource;
     [SerializeField]
@@ -137,6 +144,15 @@ public class SceneManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    void UpdateStudyAsana()
+    {
+        HUDStudyImage.sprite = asanas[currentStudyIndex].ImageSprite;
+        HUDStudyEngName.text = asanas[currentStudyIndex].EnglishName;
+        HUDStudySansName.text = asanas[currentStudyIndex].SanskritName;
+        HUDStudyCat.text = asanas[currentStudyIndex].Category;
+        HUDStudyNum.text = (currentStudyIndex + 1) + " of " + asanas.Count;
     }
 
     public void SelectAboutButton()
@@ -244,12 +260,13 @@ public class SceneManager : MonoBehaviour
             currentStudyIndex = 0;
         UpdateStudyAsana();
     }
-    void UpdateStudyAsana()
+
+    public void SelectQuizDoneButton()
     {
-        HUDStudyImage.sprite = asanas[currentStudyIndex].ImageSprite;
-        HUDStudyEngName.text = asanas[currentStudyIndex].EnglishName;
-        HUDStudySansName.text = asanas[currentStudyIndex].SanskritName;
-        HUDStudyCat.text = asanas[currentStudyIndex].Category;
-        HUDStudyNum.text = (currentStudyIndex + 1) + " of " + asanas.Count;
+        audioSource.PlayOneShot(MenuSound, 1f);
+        HUDQuizDone.GetComponent<MoveNormal>().MoveDown();
+        HUDTitle.GetComponent<MoveNormal>().MoveUp();
+        HUDMainButtons.GetComponent<MoveNormal>().MoveRight();
     }
+
 }

@@ -92,6 +92,11 @@ public class SceneManager : MonoBehaviour
     [SerializeField]
     Sprite[] AsanaSprites = new Sprite[75];
 
+    int[] quizAnswers;
+    int currentQuizQuestionNum = -1;
+    int currentQuizAnswerIndex = 0;
+    int maxFlashQuizQuestions = 30;
+
     int currentStudyIndex = 0;
 
     enum QuizType {
@@ -192,6 +197,12 @@ public class SceneManager : MonoBehaviour
         asanas.Add(new Asana("Sage Koundinya Pose II", "Eka Pada Koundinyasana II", "Arm Balance", AsanaSprites[72]));
         asanas.Add(new Asana("Side Crow", "Parsva Bakasana", "Arm Balance", AsanaSprites[73]));
         asanas.Add(new Asana("Wild Thing", "Camatkarasana", "Arm Balance", AsanaSprites[74]));
+
+        quizAnswers = new int[asanas.Count];
+        for (int i = 0; i < quizAnswers.Length; i++)
+        {
+            quizAnswers[i] = i;
+        }
     }
 
     // Update is called once per frame
@@ -243,6 +254,100 @@ public class SceneManager : MonoBehaviour
         for (int i = 0; i < HUDQuizCatAnswerButtons.Length; i++)
         {
             HUDQuizCatAnswerButtons[i].SetActive(currentQuizContent == QuizContent.Category);
+        }
+
+        PrepareQuizQuestions();
+        ShowNextQuizQuestion();
+    }
+
+    public void PrepareQuizQuestions()
+    {
+        // Knuth shuffle algorithm
+        for (int i = 0; i < quizAnswers.Length; i++ )
+        {
+            int tmp = quizAnswers[i];
+            int r = Random.Range(i, quizAnswers.Length);
+            quizAnswers[i] = quizAnswers[r];
+            quizAnswers[r] = tmp;
+        }
+        currentQuizQuestionNum = -1;
+    }
+
+    public void ShowQuizQuestionResult()
+    {
+
+    }
+
+    public void ShowNextQuizQuestion()
+    {
+        currentQuizQuestionNum++;
+        int poseIndex = quizAnswers[currentQuizQuestionNum];
+        if (currentQuizContent != QuizContent.Category)
+        {
+            // show a pose image and 4 pose buttons
+            HUDQuizPose.GetComponent<Image>().sprite = asanas[poseIndex].ImageSprite;
+            currentQuizAnswerIndex = Random.Range(0, 4);
+            int[] answerPoseIndices = new int[4];
+            for (int i = 0; i < answerPoseIndices.Length; i++)
+            {
+                answerPoseIndices[i] = -1;
+            }
+            answerPoseIndices[currentQuizAnswerIndex] = poseIndex;
+            int x = 0;
+            do {
+                if (x == currentQuizAnswerIndex)
+                {
+                    x++;
+                }
+                else
+                {
+                    int potentialPoseIndex = Random.Range(0, asanas.Count);
+                    bool alreadyUsed = false;
+                    for (int i = 0; i < answerPoseIndices.Length; i++)
+                    {
+                        if (answerPoseIndices[i] == potentialPoseIndex)
+                            alreadyUsed = true;
+                    }
+                    if (!alreadyUsed)
+                    {
+                        answerPoseIndices[x] = potentialPoseIndex;
+                        x++;
+                    }
+                }
+            } while (x < answerPoseIndices.Length);
+
+            for (int i = 0; i < HUDQuizAnswerButtons.Length; i++)
+            {
+                HUDQuizAnswerButtons[i].SetActive(true);
+                HUDQuizAnswerButtons[i].transform.Find("AnswerText").gameObject.GetComponent<TextMeshProUGUI>().text = currentQuizContent == QuizContent.English
+                    ? asanas[answerPoseIndices[i]].EnglishName
+                    : asanas[answerPoseIndices[i]].SanskritName;
+            }
+        }
+        else
+        {
+            // show pose text and 7 cat buttons
+            HUDQuizCategoryText.GetComponent<TextMeshProUGUI>().text = asanas[poseIndex].EnglishName + "\n\n"+ asanas[poseIndex].SanskritName;
+            if (asanas[poseIndex].Category == "Standing Pose")
+                currentQuizAnswerIndex = 0;
+            else if (asanas[poseIndex].Category == "Seated Pose")
+                currentQuizAnswerIndex = 1;
+            else if (asanas[poseIndex].Category == "Inversion")
+                currentQuizAnswerIndex = 2;
+            else if (asanas[poseIndex].Category == "Arm Balance")
+                currentQuizAnswerIndex = 3;
+            else if (asanas[poseIndex].Category == "Backbend")
+                currentQuizAnswerIndex = 4;
+            else if (asanas[poseIndex].Category == "Supine Pose")
+                currentQuizAnswerIndex = 5;
+            else if (asanas[poseIndex].Category == "Abdominal")
+                currentQuizAnswerIndex = 6;
+
+            for (int i = 0; i < HUDQuizCatAnswerButtons.Length; i++)
+            {
+                HUDQuizCatAnswerButtons[i].SetActive(true);
+            }
+            HUDQuizCatPose.GetComponent<Image>().sprite = asanas[poseIndex].ImageSprite;
         }
     }
 

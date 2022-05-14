@@ -43,6 +43,47 @@ public class SceneManager : MonoBehaviour
     [SerializeField]
     GameObject HUDQuizDone;
 
+    [SerializeField]
+    GameObject HUDQuizCorrectBar;
+    [SerializeField]
+    GameObject HUDQuizIncorrectBar;
+    [SerializeField]
+    GameObject HUDQuizCorrect;
+    [SerializeField]
+    GameObject HUDQuizIncorrect;
+    [SerializeField]
+    GameObject HUDQuizCorrectTime;
+    [SerializeField]
+    GameObject HUDQuizIncorrectTime;
+    [SerializeField]
+    GameObject HUDQuizCurrentScore;
+    [SerializeField]
+    GameObject HUDQuizCurrentTime;
+    [SerializeField]
+    GameObject[] HUDQuizAnswerButtons;
+    [SerializeField]
+    GameObject[] HUDQuizCatAnswerButtons;
+    [SerializeField]
+    GameObject HUDQuizPose;
+    [SerializeField]
+    GameObject HUDQuizPoseBorder;
+    [SerializeField]
+    GameObject HUDQuizCatPose;
+    [SerializeField]
+    GameObject HUDQuizCatPoseBorder;
+    [SerializeField]
+    GameObject HUDQuizEnglishNameText;
+    [SerializeField]
+    GameObject HUDQuizSanskritNameText;
+    [SerializeField]
+    GameObject HUDQuizCatBox;
+    [SerializeField]
+    GameObject HUDQuizCatBoxBorder;
+    [SerializeField]
+    GameObject HUDQuizCategoryText;
+    [SerializeField]
+    GameObject HUDNextButton;
+
     AudioSource audioSource;
     [SerializeField]
     AudioClip MenuSound;
@@ -175,6 +216,34 @@ public class SceneManager : MonoBehaviour
         HUDTimeTest.GetComponent<MoveNormal>().MoveDown();
         HUDTitle.GetComponent<MoveNormal>().MoveDown();
         HUDQuiz.GetComponent<MoveNormal>().MoveUp();
+
+        HUDQuizCorrectBar.SetActive(false);
+        HUDQuizIncorrectBar.SetActive(false);
+        HUDQuizCorrect.SetActive(false);
+        HUDQuizIncorrect.SetActive(false);
+        HUDQuizCorrectTime.SetActive(false);
+        HUDQuizIncorrectTime.SetActive(false);
+        HUDQuizCurrentScore.SetActive(false);
+        HUDQuizCurrentTime.SetActive(currentQuizType == QuizType.Time);
+        HUDQuizPose.SetActive(currentQuizContent != QuizContent.Category);
+        HUDQuizPoseBorder.SetActive(currentQuizContent != QuizContent.Category);
+        HUDQuizCatPose.SetActive(false);
+        HUDQuizCatPoseBorder.SetActive(false);
+        HUDQuizEnglishNameText.SetActive(false);
+        HUDQuizSanskritNameText.SetActive(false);
+        HUDQuizCategoryText.SetActive(currentQuizContent == QuizContent.Category);
+        HUDQuizCatBox.SetActive(currentQuizContent == QuizContent.Category);
+        HUDQuizCatBoxBorder.SetActive(currentQuizContent == QuizContent.Category);
+        HUDNextButton.SetActive(false);
+
+        for (int i = 0; i < HUDQuizAnswerButtons.Length; i++)
+        {
+            HUDQuizAnswerButtons[i].SetActive(currentQuizContent != QuizContent.Category);
+        }
+        for (int i = 0; i < HUDQuizCatAnswerButtons.Length; i++)
+        {
+            HUDQuizCatAnswerButtons[i].SetActive(currentQuizContent == QuizContent.Category);
+        }
     }
 
     public void SelectAboutButton()

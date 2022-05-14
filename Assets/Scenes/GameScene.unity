@@ -1448,7 +1448,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 129569077}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288718042}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: SelectStartTimeAttackQuizButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &129569077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2470,11 +2482,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingUpEndPos: {x: 0, y: 0}
-  movingDownEndPos: {x: 0, y: 0}
+  movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
   movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 3000
-  movingDownVelocity: -3000
+  movingUpVelocity: 4000
+  movingDownVelocity: -4000
   movingLeftVelocity: -4000
   movingRightVelocity: 4000
 --- !u!114 &228219329
@@ -7348,7 +7360,7 @@ GameObject:
   - component: {fileID: 902335284}
   - component: {fileID: 902335283}
   m_Layer: 5
-  m_Name: FullEngButton
+  m_Name: FlashEngButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7418,7 +7430,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 902335284}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288718042}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: SelectStartFlashEngQuizButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &902335284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7751,7 +7775,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 960857361}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288718042}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: SelectStartFullEngQuizButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &960857361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8013,7 +8049,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1288718042}
         m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: SelectStudyAsanasBackButton
+        m_MethodName: SelectQuizQuitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8331,7 +8367,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 982083173}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288718042}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: SelectStartFullSansQuizButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &982083173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9699,11 +9747,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingUpEndPos: {x: 0, y: 0}
-  movingDownEndPos: {x: 0, y: 0}
+  movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
   movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 3000
-  movingDownVelocity: -3000
+  movingUpVelocity: 4000
+  movingDownVelocity: -4000
   movingLeftVelocity: -4000
   movingRightVelocity: 4000
 --- !u!114 &1081255702
@@ -17013,7 +17061,7 @@ GameObject:
   - component: {fileID: 1803883228}
   - component: {fileID: 1803883227}
   m_Layer: 5
-  m_Name: FullCatButton
+  m_Name: FlashCatButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17083,7 +17131,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1803883228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288718042}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: SelectStartFlashCatQuizButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1803883228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17752,11 +17812,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingUpEndPos: {x: 0, y: 0}
-  movingDownEndPos: {x: 0, y: 0}
+  movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
   movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 3000
-  movingDownVelocity: -3000
+  movingUpVelocity: 4000
+  movingDownVelocity: -4000
   movingLeftVelocity: -4000
   movingRightVelocity: 4000
 --- !u!114 &1918280652
@@ -17944,7 +18004,7 @@ GameObject:
   - component: {fileID: 1930002602}
   - component: {fileID: 1930002601}
   m_Layer: 5
-  m_Name: FullSanButton
+  m_Name: FlashSanButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18014,7 +18074,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1930002602}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288718042}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: SelectStartFlashSansQuizButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1930002602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18212,7 +18284,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1939790013}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288718042}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: SelectStartFullCatQuizButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1939790013
 MonoBehaviour:
   m_ObjectHideFlags: 0

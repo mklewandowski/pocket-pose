@@ -273,7 +273,7 @@ public class SceneManager : MonoBehaviour
         currentQuizQuestionNum = -1;
     }
 
-    public void ShowQuizQuestionResult()
+    public void GradeQuizAnswer(int answerIndex)
     {
 
     }
@@ -504,6 +504,16 @@ public class SceneManager : MonoBehaviour
         currentQuizType = QuizType.Time;
         currentQuizContent = QuizContent.English;
         StartQuiz();
+    }
+    public void SelectQuizAnswerButton(int index)
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        GradeQuizAnswer(index);
+    }
+    public void SelectQuizNextButton()
+    {
+        audioSource.PlayOneShot(MenuSound, 1f);
+        ShowNextQuizQuestion();
     }
     public void SelectQuizDoneButton()
     {

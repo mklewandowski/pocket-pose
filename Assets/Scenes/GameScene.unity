@@ -12189,6 +12189,8 @@ MonoBehaviour:
   HUDFinalScore: {fileID: 1607938119}
   HUDFinalPercent: {fileID: 771774871}
   MenuSound: {fileID: 8300000, guid: 7cb45edfb985d644bba11bd74248cac2, type: 3}
+  CorrectSound: {fileID: 8300000, guid: d05d1f676bd37e44b8938e7817545d95, type: 3}
+  IncorrectSound: {fileID: 8300000, guid: b895d90bb7511964e81002a16de0a376, type: 3}
   AsanaSprites:
   - {fileID: 21300000, guid: d2d6078d88c0a2a47968c66157697054, type: 3}
   - {fileID: 21300000, guid: c2d79b3128bfb414fa7f781ff5bb0b4b, type: 3}

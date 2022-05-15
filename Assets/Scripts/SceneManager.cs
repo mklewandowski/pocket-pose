@@ -92,6 +92,10 @@ public class SceneManager : MonoBehaviour
     AudioSource audioSource;
     [SerializeField]
     AudioClip MenuSound;
+    [SerializeField]
+    AudioClip CorrectSound;
+    [SerializeField]
+    AudioClip IncorrectSound;
 
     List<Asana> asanas = new List<Asana>();
     [SerializeField]
@@ -445,6 +449,7 @@ public class SceneManager : MonoBehaviour
         HUDQuizCorrectTime.SetActive(false);
         if (correct)
         {
+            audioSource.PlayOneShot(CorrectSound, 1f);
             currentQuestionsCorrect++;
             HUDQuizCorrectTime.SetActive(currentQuizType == QuizType.Time);
             HUDQuizCorrect.SetActive(currentQuizType != QuizType.Time);
@@ -455,6 +460,7 @@ public class SceneManager : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(IncorrectSound, 1f);
             HUDQuizIncorrectTime.SetActive(currentQuizType == QuizType.Time);
             HUDQuizIncorrect.SetActive(currentQuizType != QuizType.Time);
             if (currentQuizType == QuizType.Time)
@@ -637,7 +643,6 @@ public class SceneManager : MonoBehaviour
     }
     public void SelectQuizAnswerButton(int index)
     {
-        audioSource.PlayOneShot(MenuSound, 1f);
         GradeQuizAnswer(index);
     }
     public void SelectQuizNextButton()

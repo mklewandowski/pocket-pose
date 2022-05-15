@@ -111,6 +111,7 @@ public class SceneManager : MonoBehaviour
         Category,
     }
     QuizContent currentQuizContent;
+    float quizTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -208,7 +209,16 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (quizTimer > 0)
+        {
+            quizTimer -= Time.deltaTime;
+            float displayTime = Mathf.Max(0, quizTimer);
+            HUDQuizCurrentTime.GetComponent<TextMeshProUGUI>().text = displayTime.ToString("F2");
+            if (quizTimer <=0)
+            {
+                QuizComplete();
+            }
+        }
     }
 
     void UpdateStudyAsana()
@@ -258,6 +268,8 @@ public class SceneManager : MonoBehaviour
 
         PrepareQuizQuestions();
         ShowNextQuizQuestion();
+        if (currentQuizType == QuizType.Time)
+            quizTimer = 30f;
     }
 
     public void PrepareQuizQuestions()
@@ -271,11 +283,6 @@ public class SceneManager : MonoBehaviour
             quizAnswers[r] = tmp;
         }
         currentQuizQuestionNum = -1;
-    }
-
-    public void GradeQuizAnswer(int answerIndex)
-    {
-
     }
 
     public void ShowNextQuizQuestion()
@@ -349,6 +356,17 @@ public class SceneManager : MonoBehaviour
             }
             HUDQuizCatPose.GetComponent<Image>().sprite = asanas[poseIndex].ImageSprite;
         }
+    }
+
+    public void GradeQuizAnswer(int answerIndex)
+    {
+
+    }
+
+    public void QuizComplete()
+    {
+        HUDQuiz.GetComponent<MoveNormal>().MoveDown();
+        HUDQuizDone.GetComponent<MoveNormal>().MoveUp();
     }
 
     public void SelectAboutButton()

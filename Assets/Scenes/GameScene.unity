@@ -586,7 +586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1000, y: 0}
+  m_AnchoredPosition: {x: 2000, y: 0}
   m_SizeDelta: {x: 768, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45890724
@@ -604,11 +604,11 @@ MonoBehaviour:
   movingUpEndPos: {x: 0, y: 0}
   movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
-  movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 4000
-  movingDownVelocity: -4000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingRightEndPos: {x: 2000, y: 0}
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!114 &45890725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1322,11 +1322,11 @@ MonoBehaviour:
   movingUpEndPos: {x: 0, y: 0}
   movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
-  movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 4000
-  movingDownVelocity: -4000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingRightEndPos: {x: 2000, y: 0}
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!114 &121223306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2466,7 +2466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1000, y: 0}
+  m_AnchoredPosition: {x: 2000, y: 0}
   m_SizeDelta: {x: 768, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228219328
@@ -2484,11 +2484,11 @@ MonoBehaviour:
   movingUpEndPos: {x: 0, y: 0}
   movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
-  movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 4000
-  movingDownVelocity: -4000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingRightEndPos: {x: 2000, y: 0}
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!114 &228219329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3677,11 +3677,11 @@ MonoBehaviour:
   movingUpEndPos: {x: 0, y: 0}
   movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
-  movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 4000
-  movingDownVelocity: -4000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingRightEndPos: {x: 2000, y: 0}
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!114 &447857992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8608,7 +8608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1000, y: 0}
+  m_AnchoredPosition: {x: 2000, y: 0}
   m_SizeDelta: {x: 768, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &990609234
@@ -8626,11 +8626,11 @@ MonoBehaviour:
   movingUpEndPos: {x: 0, y: 0}
   movingDownEndPos: {x: 0, y: 0}
   movingLeftEndPos: {x: 0, y: 0}
-  movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 3000
-  movingDownVelocity: -3000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingRightEndPos: {x: 2000, y: 0}
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!114 &990609235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9883,7 +9883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1000, y: 0}
+  m_AnchoredPosition: {x: 2000, y: 0}
   m_SizeDelta: {x: 768, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1081255701
@@ -9901,11 +9901,11 @@ MonoBehaviour:
   movingUpEndPos: {x: 0, y: 0}
   movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
-  movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 4000
-  movingDownVelocity: -4000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingRightEndPos: {x: 2000, y: 0}
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!114 &1081255702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10178,10 +10178,10 @@ MonoBehaviour:
   movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
   movingRightEndPos: {x: 0, y: 0}
-  movingUpVelocity: 4000
-  movingDownVelocity: -4000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!1 &1098133365
 GameObject:
   m_ObjectHideFlags: 0
@@ -11158,12 +11158,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingUpEndPos: {x: 0, y: 0}
   movingDownEndPos: {x: 0, y: -2000}
-  movingLeftEndPos: {x: -1000, y: 0}
+  movingLeftEndPos: {x: -2000, y: 0}
   movingRightEndPos: {x: 0, y: 0}
-  movingUpVelocity: 4000
-  movingDownVelocity: -4000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!1 &1170990068
 GameObject:
   m_ObjectHideFlags: 0
@@ -11924,11 +11924,11 @@ MonoBehaviour:
   movingUpEndPos: {x: 0, y: 0}
   movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
-  movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 4000
-  movingDownVelocity: -4000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingRightEndPos: {x: 2000, y: 0}
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!114 &1258798647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12873,11 +12873,11 @@ MonoBehaviour:
   movingUpEndPos: {x: 0, y: 0}
   movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
-  movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 4000
-  movingDownVelocity: -4000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingRightEndPos: {x: 2000, y: 0}
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!114 &1352815125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17981,7 +17981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1000, y: 0}
+  m_AnchoredPosition: {x: 2000, y: 0}
   m_SizeDelta: {x: 768, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918280651
@@ -17999,11 +17999,11 @@ MonoBehaviour:
   movingUpEndPos: {x: 0, y: 0}
   movingDownEndPos: {x: 0, y: -2000}
   movingLeftEndPos: {x: 0, y: 0}
-  movingRightEndPos: {x: 1000, y: 0}
-  movingUpVelocity: 4000
-  movingDownVelocity: -4000
-  movingLeftVelocity: -4000
-  movingRightVelocity: 4000
+  movingRightEndPos: {x: 2000, y: 0}
+  movingUpVelocity: 6000
+  movingDownVelocity: -6000
+  movingLeftVelocity: -6000
+  movingRightVelocity: 6000
 --- !u!114 &1918280652
 MonoBehaviour:
   m_ObjectHideFlags: 0

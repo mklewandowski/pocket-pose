@@ -96,6 +96,8 @@ public class SceneManager : MonoBehaviour
     int currentQuizQuestionNum = -1;
     int currentQuizAnswerIndex = 0;
     int maxFlashQuizQuestions = 30;
+    int currentQuestionsCorrect = 0;
+    int currentQuestionsComplete = 0;
 
     int currentStudyIndex = 0;
 
@@ -112,6 +114,7 @@ public class SceneManager : MonoBehaviour
     }
     QuizContent currentQuizContent;
     float quizTimer = 0f;
+    float quizScoreTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -214,9 +217,18 @@ public class SceneManager : MonoBehaviour
             quizTimer -= Time.deltaTime;
             float displayTime = Mathf.Max(0, quizTimer);
             HUDQuizCurrentTime.GetComponent<TextMeshProUGUI>().text = displayTime.ToString("F2");
-            if (quizTimer <=0)
+            if (quizTimer <= 0)
             {
                 QuizComplete();
+            }
+        }
+        if (quizScoreTimer > 0)
+        {
+            quizScoreTimer -= Time.deltaTime;
+            if (quizScoreTimer <= 0)
+            {
+                HUDQuizCorrectTime.SetActive(false);
+                HUDQuizIncorrectTime.SetActive(false);
             }
         }
     }
@@ -232,6 +244,9 @@ public class SceneManager : MonoBehaviour
 
     void StartQuiz()
     {
+        currentQuestionsComplete = 0;
+        currentQuestionsCorrect = 0;
+
         HUDFullTest.GetComponent<MoveNormal>().MoveDown();
         HUDFlashTest.GetComponent<MoveNormal>().MoveDown();
         HUDTimeTest.GetComponent<MoveNormal>().MoveDown();
@@ -356,11 +371,82 @@ public class SceneManager : MonoBehaviour
             }
             HUDQuizCatPose.GetComponent<Image>().sprite = asanas[poseIndex].ImageSprite;
         }
+
+        HUDNextButton.SetActive(false);
+        HUDQuizCorrectBar.SetActive(false);
+        HUDQuizIncorrectBar.SetActive(false);
+        HUDQuizEnglishNameText.SetActive(false);
+        HUDQuizSanskritNameText.SetActive(false);
+        HUDQuizCorrect.SetActive(false);
+        HUDQuizIncorrect.SetActive(false);
+        HUDQuizCorrect.transform.localScale = new Vector3(.1f, .1f, .1f);
+        HUDQuizIncorrect.transform.localScale = new Vector3(.1f, .1f, .1f);
+        HUDQuizCurrentScore.SetActive(false);
+        HUDQuizCatPose.SetActive(false);
+        HUDQuizCatPoseBorder.SetActive(false);
     }
 
     public void GradeQuizAnswer(int answerIndex)
     {
+        bool correct = currentQuizAnswerIndex == answerIndex;
 
+        HUDNextButton.SetActive(currentQuizType != QuizType.Time);
+        if (currentQuizType != QuizType.Time)
+        {
+            for (int i = 0; i < HUDQuizAnswerButtons.Length; i++)
+            {
+                HUDQuizAnswerButtons[i].SetActive(false);
+            }
+            for (int i = 0; i < HUDQuizCatAnswerButtons.Length; i++)
+            {
+                HUDQuizCatAnswerButtons[i].SetActive(false);
+            }
+        }
+        HUDQuizCorrectBar.SetActive(correct && currentQuizType != QuizType.Time);
+        HUDQuizIncorrectBar.SetActive(!correct && currentQuizType != QuizType.Time);
+
+        if (currentQuizContent != QuizContent.Category)
+        {
+            HUDQuizEnglishNameText.GetComponent<TextMeshProUGUI>().text = asanas[quizAnswers[currentQuestionsComplete]].EnglishName;
+            HUDQuizSanskritNameText.GetComponent<TextMeshProUGUI>().text = asanas[quizAnswers[currentQuestionsComplete]].SanskritName;
+            HUDQuizSanskritNameText.SetActive(currentQuizType != QuizType.Time);
+        }
+        else
+        {
+            HUDQuizEnglishNameText.GetComponent<TextMeshProUGUI>().text = asanas[quizAnswers[currentQuestionsComplete]].Category;
+        }
+        HUDQuizEnglishNameText.SetActive(currentQuizType != QuizType.Time);
+        HUDQuizCatPose.GetComponent<Image>().sprite = asanas[quizAnswers[currentQuestionsComplete]].ImageSprite;
+        HUDQuizCatPose.SetActive(currentQuizType != QuizType.Time && currentQuizContent == QuizContent.Category);
+        HUDQuizCatPoseBorder.SetActive(currentQuizType != QuizType.Time && currentQuizContent == QuizContent.Category);
+
+        if (correct)
+        {
+            currentQuestionsCorrect++;
+            HUDQuizCorrectTime.SetActive(currentQuizType == QuizType.Time);
+            HUDQuizCorrect.SetActive(currentQuizType != QuizType.Time);
+            if (currentQuizType == QuizType.Time)
+                HUDQuizCorrectTime.GetComponent<GrowAndShrink>().StartEffect();
+            else
+                HUDQuizCorrect.GetComponent<GrowAndShrink>().StartEffect();
+        }
+        else
+        {
+            HUDQuizIncorrectTime.SetActive(currentQuizType == QuizType.Time);
+            HUDQuizIncorrect.SetActive(currentQuizType != QuizType.Time);
+            if (currentQuizType == QuizType.Time)
+                HUDQuizIncorrectTime.GetComponent<GrowAndShrink>().StartEffect();
+            else
+                HUDQuizIncorrect.GetComponent<GrowAndShrink>().StartEffect();
+        }
+        currentQuestionsComplete++;
+        HUDQuizCurrentScore.GetComponent<TextMeshProUGUI>().text = currentQuestionsCorrect + " for " + currentQuestionsComplete;
+        HUDQuizCurrentScore.SetActive(currentQuizType != QuizType.Time);
+        if (currentQuizType == QuizType.Time)
+        {
+            quizScoreTimer = 1.5f;
+            ShowNextQuizQuestion();
+        }
     }
 
     public void QuizComplete()
@@ -543,6 +629,7 @@ public class SceneManager : MonoBehaviour
     public void SelectQuizQuitButton()
     {
         audioSource.PlayOneShot(MenuSound, 1f);
+        quizTimer = 0f;
         HUDQuiz.GetComponent<MoveNormal>().MoveDown();
         HUDTitle.GetComponent<MoveNormal>().MoveUp();
         HUDMainButtons.GetComponent<MoveNormal>().MoveRight();

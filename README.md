@@ -1,5 +1,7 @@
 # Pocket Pose
-Pocket Pose is a mobile application that I built when doing my 200 hour yoga teacher training to help me learn yoga asanas (aka yoga poses). It contains a study guide and various quizzes that cover 75 yoga asanas. If you've ever wanted to get more familiar with your yoga poses, this little app will help. 
+Pocket Pose is a mobile application that I built when doing my 200 hour yoga teacher training to help me learn yoga asanas (aka yoga poses). It contains a study guide and various quizzes that cover 75 yoga asanas. If you've ever wanted to get more familiar with your yoga poses, this little app will help.
+
+![Pocket Pose screenshot](https://github.com/mklewandowski/pocket-pose/blob/main/Assets/Images/pocket-pose-screenshot.png?raw=true)
 
 ## Supported Platforms
 Pocket Pose is designed for use on multiple platforms including:

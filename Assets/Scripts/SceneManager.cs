@@ -84,6 +84,11 @@ public class SceneManager : MonoBehaviour
     [SerializeField]
     GameObject HUDNextButton;
 
+    [SerializeField]
+    TextMeshProUGUI HUDFinalScore;
+    [SerializeField]
+    TextMeshProUGUI HUDFinalPercent;
+
     AudioSource audioSource;
     [SerializeField]
     AudioClip MenuSound;
@@ -302,7 +307,23 @@ public class SceneManager : MonoBehaviour
 
     public void ShowNextQuizQuestion()
     {
+        // is the quiz over
+        if (currentQuizType == QuizType.Flash && currentQuestionsComplete == maxFlashQuizQuestions)
+        {
+            QuizComplete();
+            return;
+        }
+        else if (currentQuizType == QuizType.Full && currentQuestionsComplete == asanas.Count)
+        {
+            QuizComplete();
+            return;
+        }
+
         currentQuizQuestionNum++;
+
+        if (currentQuizQuestionNum >= asanas.Count)
+            currentQuizQuestionNum = 0;
+
         int poseIndex = quizAnswers[currentQuizQuestionNum];
         if (currentQuizContent != QuizContent.Category)
         {
@@ -407,19 +428,21 @@ public class SceneManager : MonoBehaviour
 
         if (currentQuizContent != QuizContent.Category)
         {
-            HUDQuizEnglishNameText.GetComponent<TextMeshProUGUI>().text = asanas[quizAnswers[currentQuestionsComplete]].EnglishName;
-            HUDQuizSanskritNameText.GetComponent<TextMeshProUGUI>().text = asanas[quizAnswers[currentQuestionsComplete]].SanskritName;
+            HUDQuizEnglishNameText.GetComponent<TextMeshProUGUI>().text = asanas[quizAnswers[currentQuizQuestionNum]].EnglishName;
+            HUDQuizSanskritNameText.GetComponent<TextMeshProUGUI>().text = asanas[quizAnswers[currentQuizQuestionNum]].SanskritName;
             HUDQuizSanskritNameText.SetActive(currentQuizType != QuizType.Time);
         }
         else
         {
-            HUDQuizEnglishNameText.GetComponent<TextMeshProUGUI>().text = asanas[quizAnswers[currentQuestionsComplete]].Category;
+            HUDQuizEnglishNameText.GetComponent<TextMeshProUGUI>().text = asanas[quizAnswers[currentQuizQuestionNum]].Category;
         }
         HUDQuizEnglishNameText.SetActive(currentQuizType != QuizType.Time);
-        HUDQuizCatPose.GetComponent<Image>().sprite = asanas[quizAnswers[currentQuestionsComplete]].ImageSprite;
+        HUDQuizCatPose.GetComponent<Image>().sprite = asanas[quizAnswers[currentQuizQuestionNum]].ImageSprite;
         HUDQuizCatPose.SetActive(currentQuizType != QuizType.Time && currentQuizContent == QuizContent.Category);
         HUDQuizCatPoseBorder.SetActive(currentQuizType != QuizType.Time && currentQuizContent == QuizContent.Category);
 
+        HUDQuizIncorrectTime.SetActive(false);
+        HUDQuizCorrectTime.SetActive(false);
         if (correct)
         {
             currentQuestionsCorrect++;
@@ -451,6 +474,9 @@ public class SceneManager : MonoBehaviour
 
     public void QuizComplete()
     {
+        HUDFinalScore.text = "You got " + currentQuestionsCorrect + " out of " + currentQuestionsComplete + " correct!";
+        float percent = (float)currentQuestionsCorrect / (float)currentQuestionsComplete * 100.0f;
+        HUDFinalPercent.text = percent.ToString("0") + "%";
         HUDQuiz.GetComponent<MoveNormal>().MoveDown();
         HUDQuizDone.GetComponent<MoveNormal>().MoveUp();
     }
@@ -625,6 +651,9 @@ public class SceneManager : MonoBehaviour
         HUDQuizDone.GetComponent<MoveNormal>().MoveDown();
         HUDTitle.GetComponent<MoveNormal>().MoveUp();
         HUDMainButtons.GetComponent<MoveNormal>().MoveRight();
+        HUDFullTest.GetComponent<RectTransform>().anchoredPosition = new Vector2(2000f, 0);
+        HUDFlashTest.GetComponent<RectTransform>().anchoredPosition = new Vector2(2000f, 0);
+        HUDTimeTest.GetComponent<RectTransform>().anchoredPosition = new Vector2(2000f, 0);
     }
     public void SelectQuizQuitButton()
     {
@@ -633,9 +662,9 @@ public class SceneManager : MonoBehaviour
         HUDQuiz.GetComponent<MoveNormal>().MoveDown();
         HUDTitle.GetComponent<MoveNormal>().MoveUp();
         HUDMainButtons.GetComponent<MoveNormal>().MoveRight();
-        HUDFullTest.GetComponent<RectTransform>().anchoredPosition = new Vector2(1000f, 0);
-        HUDFlashTest.GetComponent<RectTransform>().anchoredPosition = new Vector2(1000f, 0);
-        HUDTimeTest.GetComponent<RectTransform>().anchoredPosition = new Vector2(1000f, 0);
+        HUDFullTest.GetComponent<RectTransform>().anchoredPosition = new Vector2(2000f, 0);
+        HUDFlashTest.GetComponent<RectTransform>().anchoredPosition = new Vector2(2000f, 0);
+        HUDTimeTest.GetComponent<RectTransform>().anchoredPosition = new Vector2(2000f, 0);
     }
 
 }

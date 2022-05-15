@@ -12186,6 +12186,8 @@ MonoBehaviour:
   HUDQuizCatBoxBorder: {fileID: 1930029228}
   HUDQuizCategoryText: {fileID: 2140549722}
   HUDNextButton: {fileID: 519557070}
+  HUDFinalScore: {fileID: 1607938119}
+  HUDFinalPercent: {fileID: 771774871}
   MenuSound: {fileID: 8300000, guid: 7cb45edfb985d644bba11bd74248cac2, type: 3}
   AsanaSprites:
   - {fileID: 21300000, guid: d2d6078d88c0a2a47968c66157697054, type: 3}

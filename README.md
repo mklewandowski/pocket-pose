@@ -21,3 +21,10 @@ Use the following steps to run locally:
 - Code edited using Visual Studio Code
 - Audio edited using [Audacity](https://www.audacityteam.org/)
 - 2D images created and edited using [Paint.NET](https://www.getpaint.net/)
+
+## Credits
+Yoga pose images by [Witold Fitz-Simon](http://www.yogaartandscience.com/poses/poses.html) are licensed under [Creative Commons Attribution-Share Alike 2.5](https://creativecommons.org/licenses/by-sa/2.5/)
+
+Yoga pose images by [Mr. Yoga](http://mryoga.com/core-yoga-poses/) are licensed under [Creative Commons Attribution-Share Alike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+
+Yoga pose images by Kennguru are licensed under [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.0/)

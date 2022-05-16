@@ -167,7 +167,7 @@ public class SceneManager : MonoBehaviour
         asanas.Add(new Asana("Reverse Table Top", "Purvottanasana", "Backbend", AsanaSprites[29]));
         asanas.Add(new Asana("Head to Knee", "Janu Sirsasana", "Seated Pose", AsanaSprites[30]));
         asanas.Add(new Asana("Revolved Head to Toe", "Parivrtta Janu Sirsasana", "Seated Pose", AsanaSprites[31]));
-        asanas.Add(new Asana("Cobbler's Pose", "Baddha Konasana", "Seated Pose", AsanaSprites[32]));
+        asanas.Add(new Asana("Bound Angle Pose", "Baddha Konasana", "Seated Pose", AsanaSprites[32]));
         asanas.Add(new Asana("Cow Face Pose", "Gomukhasana", "Seated Pose", AsanaSprites[33]));
         asanas.Add(new Asana("Wide Angle Seated Forward Bend", "Upavistha Konasana", "Seated Pose", AsanaSprites[34]));
         asanas.Add(new Asana("Sage Marichi Pose", "Marichyasana", "Seated Pose", AsanaSprites[35]));
